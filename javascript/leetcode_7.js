@@ -3,41 +3,32 @@
  * @return {number}
  */
 
-var last_digit = function(num){
-    return num%10;
-}
+
 var reverse = function(x) {
+
+    if (x <= -2147483648 || x == 0){
+        return 0;
+    }
+
     num = Math.abs(x);
-    list_of_digits = [];
+    let reverseInteger = 0;
+
     while (true){
-        list_of_digits.push(last_digit(num));
+        let digit = num%10;
+        reverseInteger = reverseInteger*10 + digit;
         num = Math.floor(num/10);
         if (num == 0){
             break
         }
     }
 
-    console.log(list_of_digits)
-    length_of_integer = list_of_digits.length - 1
-    reverse_number = 0
-    list_of_digits.forEach(e =>{
-        reverse_number += e*Math.pow(10,length_of_integer)
-        length_of_integer -= 1
-    })
-    console.log("The number", reverse_number)
-    if (reverse_number >= Math.pow(-2,31) && reverse_number <= Math.pow(2,31)-1 ){
-        if (x == 0){
-            return reverse_number
-        }    
-        else{
-            return (x/(Math.abs(x)))*reverse_number
-        }
-            
+    if (reverseInteger <= 2147483647 ){
+        return (x/(Math.abs(x)))*reverseInteger
     }else{
-                
         return 0;        
     }
         
 };
 
 console.log(reverse(123));
+console.log(reverse(1563847412));
