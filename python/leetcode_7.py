@@ -1,32 +1,22 @@
 
-def get_last_digit(num):
-    return num%10
-
 @profile
 def reverse( x: int) -> int:
     num = abs(x)
     list_of_digits = []
+    reverse_string = ''
     while True:
         #q,rem = divmod(num,10)
-        list_of_digits.append(get_last_digit(num))
-        
+        digit = num%10
+        reverse_string += digit
         num = num // 10
         if num == 0:
-            #list_of_digits.append(q)
-            #reverse += q
             break
-    reverse = 0
-
-    length_of_integer = len(list_of_digits)-1
-    reverse = 0
-    for i in list_of_digits:
-        reverse += i*pow(10,length_of_integer)
-        length_of_integer -= 1
-    if (reverse >= -2147483648 and reverse <= 2147483647 ):
+    reverse_integer = int(reverse_string)
+    if (reverse_integer >= -2147483648 and reverse_integer <= 2147483647 ):
         if x == 0:
             return reverse
         else:
-            return (x//(abs(x)))*reverse
+            return (x//(abs(x)))*reverse_integer
     else:
         return 0
             
