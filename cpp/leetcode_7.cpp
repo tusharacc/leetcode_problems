@@ -1,5 +1,5 @@
 //Some Comment
-#include <vector>
+
 #include <iostream>
 #include <cmath>
 
@@ -20,7 +20,7 @@ int reverse(int x){
     
         int digit = num%10;
 
-        if (size >= 9 && digit >= 3){
+        if (size > 9 && digit >= 3){
             return 0;
         } else if (reverse > 2147483600 && digit >= 5){
             return 0;
