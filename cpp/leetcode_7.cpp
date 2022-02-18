@@ -55,7 +55,7 @@ int main(int argc,char *argv[]){
     std::cout << reverse(1563847412) << std::endl;
     std::cout << reverse(123456) << std::endl;
     std::cout << reverse(1534236469) << std::endl;
-    std::cout << reverse(1563847412) << std::endl
+    std::cout << reverse(1563847412) << std::endl;
 }
 
 //-2147483648
