@@ -11,11 +11,16 @@ def two_sum(numbers, target):
      list_int32
     """
     # Write your code here.
-    numbers_sorted = sorted(numbers)
+    i,j = -1,-1
 
-
+    unique_number = {}
+    for k,v in enumerate(numbers):
+        if unique_number.get(target - v,None) != None:
+            return [k,unique_number[target - v]]
+        else:
+            unique_number[v] = k
         
-    return [-1,-1]
+    return [i,j]
 
 if __name__ == '__main__':
     array: list = [4, 1, 5, 0, -1]
