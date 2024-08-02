@@ -35,12 +35,22 @@ class Stack:
 class Graph:
     def __init__(self,n:int):
         self.graph: Dict[int,List[int]] = {}
-        for i in range(n):
-            self.graph[i] = []
+        # for i in range(n):
+        #     self.graph[i] = []
 
     def buildEdges(self,edge:List[int]):
-        self.graph[edge[0]].append(edge[1])
-        self.graph[edge[1]].append(edge[0])
+        if not self.graph.get(edge[0],False):
+            self.graph[edge[0]] = [edge[1]]
+        else:
+            self.graph[edge[0]].append(edge[1])
+
+        if not self.graph.get(edge[1],False):
+            self.graph[edge[1]] = [edge[0]]
+        else:
+            self.graph[edge[1]].append(edge[0])
+
+        
+        
 
     def getEdges(self,vertex:int)->List[int]:
         return self.graph.get(vertex)
